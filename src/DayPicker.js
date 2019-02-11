@@ -109,6 +109,11 @@ export class DayPicker extends Component {
       PropTypes.func,
       PropTypes.instanceOf(Component),
     ]),
+    footerElement: PropTypes.oneOfType([
+      PropTypes.element,
+      PropTypes.func,
+      PropTypes.instanceOf(Component),
+    ]),
 
     // Events
     onBlur: PropTypes.func,
@@ -153,6 +158,7 @@ export class DayPicker extends Component {
     weekdayElement: <Weekday />,
     navbarElement: <Navbar classNames={classNames} />,
     captionElement: <Caption classNames={classNames} />,
+    footerElement: null,
   };
 
   dayPicker = null;
@@ -531,10 +537,10 @@ export class DayPicker extends Component {
   }
 
   renderFooter() {
-    if (this.props.todayButton) {
+    if (this.props.footerElement || this.props.todayButton) {
       return (
         <div className={this.props.classNames.footer}>
-          {this.renderTodayButton()}
+          {this.props.footerElement || this.renderTodayButton()}
         </div>
       );
     }

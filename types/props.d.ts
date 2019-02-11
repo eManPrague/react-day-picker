@@ -43,6 +43,10 @@ export interface DayPickerProps {
     | React.ReactElement<Partial<CaptionElementProps>>
     | React.ComponentClass<CaptionElementProps>
     | React.SFC<CaptionElementProps>;
+  footerElement?:
+    | React.ReactElement<Partial<CaptionElementProps>>
+    | React.ComponentClass<CaptionElementProps>
+    | React.SFC<CaptionElementProps>;
   className?: string;
   classNames?: ClassNames;
   containerProps?: React.DetailedHTMLProps<
